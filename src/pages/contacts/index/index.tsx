@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import ContactAPI from "../../../config/contact.api";
 import IContact from "../../../interfaces/i-contact";
 import ContactsList from "../../../components/contacts/contacts-list/contacts-list.component";
 
@@ -7,9 +7,7 @@ const Index = () => {
   const [contacts, setContacts] = React.useState<IContact[]>([]);
 
   const fetchContacts = async () => {
-    const resultat = await axios.get<IContact[]>(
-      "http://localhost:3333/contacts"
-    );
+    const resultat = await ContactAPI.get<IContact[]>("/");
     return resultat.data;
   };
 
