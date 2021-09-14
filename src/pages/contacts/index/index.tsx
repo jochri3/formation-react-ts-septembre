@@ -20,7 +20,7 @@ const Index = () => {
   }, []);
 
   const deleteContact = (id: string) => {
-    const newState = contacts.filter((contact) => contact._id !== id);
+    const newState = contacts.filter((contact) => contact.id !== id);
 
     setContacts(newState);
   };

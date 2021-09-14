@@ -20,14 +20,14 @@ const ContactsList: React.FC<ContactListProps> = (props) => {
       </thead>
       <tbody>
         {props.contacts.map((contact, index) => (
-          <tr key={contact._id}>
+          <tr key={contact.id}>
             <td>{contact.last_name}</td>
             <td>{contact.first_name}</td>
             <td>{contact.email}</td>
             <td>{contact.position}</td>
             <td>{contact.phone_number}</td>
             <td>
-              <button onClick={() => props.deleteContact(contact._id)}>
+              <button onClick={() => props.deleteContact(contact.id)}>
                 Supprimer
               </button>
             </td>
