@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
+import contactsReducer from "./contacts/contacts.reducer";
 
 const rootReducer = combineReducers({
-  todos: () => ["Manger", "Aller à l'école", "Apprendre react"],
-  contacts: () => ["Jean-Paul", "Lydie"],
+  contacts: contactsReducer,
 });
 
 export default rootReducer;

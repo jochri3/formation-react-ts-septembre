@@ -1,28 +1,22 @@
 import React from "react";
-import ContactAPI from "../../../config/contact.api";
-import IContact from "../../../interfaces/i-contact";
 import ContactsList from "../../../components/contacts/contacts-list/contacts-list.component";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchContacts } from "../../../state/contacts/contacts.action-creator";
 
 const Index = () => {
-  const [contacts, setContacts] = React.useState<IContact[]>([]);
-
-  const fetchContacts = async () => {
-    const resultat = await ContactAPI.get<IContact[]>("/");
-    return resultat.data;
-  };
+  const contacts: any = useSelector<any>((state) => state.contacts);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    fetchContacts().then((data) => {
-      setContacts(data);
-    });
+    dispatch(fetchContacts());
   }, []);
 
   const deleteContact = (id: string) => {
-    const newState = contacts.filter((contact) => contact.id !== id);
-
-    setContacts(newState);
+    return;
   };
-  return <ContactsList contacts={contacts} deleteContact={deleteContact} />;
+  return (
+    <ContactsList contacts={contacts.contacts} deleteContact={deleteContact} />
+  );
 };
 
 export default Index;
