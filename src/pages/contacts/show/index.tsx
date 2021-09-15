@@ -22,6 +22,7 @@ const ContactShow: React.FC<ContactDetailsRouterProps> = ({ match }) => {
       );
       setContact(contact);
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

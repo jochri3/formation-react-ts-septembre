@@ -2,7 +2,7 @@ import IContact from "../../interfaces/i-contact";
 import ActionTypes from "./contacts.action-types";
 
 // GET /contacts
-export interface IFetchContactRequest {
+export interface IFetchContactsRequest {
   type: ActionTypes.FETCH_CONTACTS_REQUEST;
 }
 
@@ -16,7 +16,25 @@ export interface IFetchContactsFailure {
   payload: string;
 }
 
+
+export interface IFetchContactRequest {
+  type: ActionTypes.FETCH_CONTACT_REQUEST;
+}
+
+export interface IFetchContactSuccess {
+  type: ActionTypes.FETCH_CONTACT_SUCCESS;
+  payload: IContact;
+}
+
+export interface IFetchContactFailure {
+  type: ActionTypes.FETCH_CONTACT_FAILURE;
+  payload: string;
+}
+
 export type Action =
-  | IFetchContactRequest
+  | IFetchContactsRequest
   | IFetchContactsSuccess
-  | IFetchContactsFailure;
+  | IFetchContactsFailure
+   | IFetchContactRequest
+  | IFetchContactSuccess
+  | IFetchContactFailure;
